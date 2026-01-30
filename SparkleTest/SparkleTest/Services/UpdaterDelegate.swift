@@ -9,17 +9,11 @@ import Foundation
 import Sparkle
 
 /// Delegate to handle automatic update checking on app launch
+/// Note: SPUUpdaterDelegate protocol methods are optional in Sparkle 2.
+/// This delegate can be extended with optional methods as needed.
 class UpdaterDelegate: NSObject, SPUUpdaterDelegate {
-    func updaterDidNotFindUpdate(_ updater: SPUUpdater, error: Error) {
-        // Handle case when no update is found
-        print("No update available: \(error.localizedDescription)")
-    }
-    
-    func updater(_ updater: SPUUpdater, didFinishUpdateCycleFor updateCheck: SPUUpdateCheck, error: Error?) {
-        if let error = error {
-            print("Update check finished with error: \(error.localizedDescription)")
-        } else {
-            print("Update check completed successfully")
-        }
-    }
+    // Sparkle 2 delegate methods are optional.
+    // If you need to handle update events, implement the appropriate optional methods
+    // from the SPUUpdaterDelegate protocol. The deprecated Sparkle 1 methods
+    // (updaterDidNotFindUpdate, didFinishUpdateCycleFor) are no longer available.
 }

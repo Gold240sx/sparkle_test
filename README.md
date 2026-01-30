@@ -154,8 +154,8 @@ For detailed instructions, see [GENERATE_APPCAST_GUIDE.md](./GENERATE_APPCAST_GU
 ## App Information
 
 - **Bundle Identifier**: `com.michaelMartell.SparkleTest`
-- **Version**: 1.2
-- **Build Number**: 1.2
+- **Version**: 1.3
+- **Build Number**: 1.3
 - **Minimum macOS Version**: 26.2
 
 ## Dependencies
