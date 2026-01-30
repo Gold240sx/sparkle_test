@@ -8,7 +8,7 @@
             <sparkle:version>1.1</sparkle:version>
             <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/Gold240sx/sparkle_test/releases/download/prod/SparkleTest.app.zip" length="3156455" type="application/octet-stream" sparkle:edSignature="+ho9fLRBhm48pMyl6JtkTZjSb0+di2QdOwObjZzAjgEBYp7g1KSFsCEyea+3m1r6PcV8czEGzMrcJIFZoZpbAg=="/>
+            <enclosure url="https://github.com/Gold240sx/sparkle_test/releases/download/prod/SparkleTest.dmg" length="3156455" type="application/octet-stream" sparkle:edSignature="+ho9fLRBhm48pMyl6JtkTZjSb0+di2QdOwObjZzAjgEBYp7g1KSFsCEyea+3m1r6PcV8czEGzMrcJIFZoZpbAg=="/>
         </item>
     </channel>
 </rss>
