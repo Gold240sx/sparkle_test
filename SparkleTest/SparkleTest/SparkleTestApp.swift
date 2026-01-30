@@ -14,14 +14,18 @@ struct SparkleTestApp: App {
     private let updaterController: SPUStandardUpdaterController
     private let updaterDelegate: UpdaterDelegate
     private let updateChecker: UpdateChecker
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var didRunLaunchCheck = false
     
     init() {
         // Create updater delegate for handling update events
         updaterDelegate = UpdaterDelegate()
         
         // Initialize updater controller with delegate
+        // Set startingUpdater to false to avoid Sparkle's automatic checking
+        // We'll handle checking manually through UpdateChecker to avoid duplicate checks
         updaterController = SPUStandardUpdaterController(
-            startingUpdater: true,
+            startingUpdater: false,
             updaterDelegate: updaterDelegate,
             userDriverDelegate: nil
         )
@@ -36,13 +40,13 @@ struct SparkleTestApp: App {
             checkOnBecomeActive: false     // Don't check when app becomes active
         )
         
+        // Create UpdateChecker - UpdateChecker.init defers accessing updater properties
+        // so this should be safe even if updater isn't fully ready yet
         updateChecker = UpdateChecker(
             updater: updaterController.updater,
             configuration: updateConfig
         )
         
-        // Check for updates on app launch
-        updateChecker.checkOnLaunch()
     }
     
     var sharedModelContainer: ModelContainer = {
@@ -68,5 +72,11 @@ struct SparkleTestApp: App {
                 CheckForUpdatesView(updater: updaterController.updater)
             }
         }
+        .onChange(of: scenePhase) { phase in
+            guard phase == .active, !didRunLaunchCheck else { return }
+            didRunLaunchCheck = true
+            updateChecker.checkOnLaunch()
+        }
     }
 }
+

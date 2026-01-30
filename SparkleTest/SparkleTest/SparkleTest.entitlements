@@ -20,7 +20,6 @@
 	<false/>
 	<key>com.apple.security.cs.disable-library-validation</key>
 	<false/>
-
 	<key>com.apple.security.temporary-exception.mach-lookup.global-name</key>
 	<array>
 		<string>$(PRODUCT_BUNDLE_IDENTIFIER)-spks</string>

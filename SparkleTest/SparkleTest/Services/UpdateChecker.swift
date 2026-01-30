@@ -36,7 +36,21 @@ class UpdateChecker {
         self.updater = updater
         self.configuration = configuration
         
-        setupAutomaticChecking()
+        // Defer setup to avoid accessing updater during initialization
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.startUpdater()
+            self.setupAutomaticChecking()
+        }
+    }
+    
+    /// Starts the updater - must be called before checkForUpdates
+    private func startUpdater() {
+        do {
+            try updater.start()
+        } catch {
+            print("Failed to start Sparkle updater: \(error)")
+        }
     }
     
     /// Sets up automatic update checking based on configuration
@@ -66,3 +80,4 @@ class UpdateChecker {
         updater.checkForUpdates()
     }
 }
+

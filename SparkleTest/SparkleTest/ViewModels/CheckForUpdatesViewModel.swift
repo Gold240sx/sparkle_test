@@ -16,10 +16,19 @@ final class CheckForUpdatesViewModel: ObservableObject {
     private var cancellable: AnyCancellable?
     
     init(updater: SPUUpdater) {
-        // Store the AnyCancellable to keep the subscription alive
-        // Without storing it, the subscription would be cancelled immediately
-        cancellable = updater.publisher(for: \.canCheckForUpdates)
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.canCheckForUpdates, on: self)
+        // Defer all updater access to avoid crashes during initialization
+        // The updater may not be fully ready when this ViewModel is created
+        DispatchQueue.main.async { [weak self, updater] in
+            guard let self = self else { return }
+            // Set initial value after a brief delay
+            self.canCheckForUpdates = updater.canCheckForUpdates
+            
+            // Subscribe to changes
+            self.cancellable = updater.publisher(for: \.canCheckForUpdates)
+                .receive(on: DispatchQueue.main)
+                .sink { value in
+                    self.canCheckForUpdates = value
+                }
+        }
     }
 }

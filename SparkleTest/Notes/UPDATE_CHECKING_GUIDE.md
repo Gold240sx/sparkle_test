@@ -52,6 +52,7 @@ let updateConfig = UpdateChecker.Configuration(
 ## Example Configurations
 
 ### Check Only on Launch (No Periodic Checks)
+
 ```swift
 let updateConfig = UpdateChecker.Configuration(
     checkOnLaunch: true,
@@ -60,6 +61,7 @@ let updateConfig = UpdateChecker.Configuration(
 ```
 
 ### Check Every 6 Hours
+
 ```swift
 let updateConfig = UpdateChecker.Configuration(
     checkOnLaunch: true,
@@ -69,6 +71,7 @@ let updateConfig = UpdateChecker.Configuration(
 ```
 
 ### Check on Launch and When App Becomes Active
+
 ```swift
 let updateConfig = UpdateChecker.Configuration(
     checkOnLaunch: true,

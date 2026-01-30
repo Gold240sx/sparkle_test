@@ -9,12 +9,13 @@ import SwiftUI
 import Sparkle
 
 struct CheckForUpdatesView: View {
-    @ObservedObject private var viewModel: CheckForUpdatesViewModel
+    @StateObject private var viewModel: CheckForUpdatesViewModel
     private let updater: SPUUpdater
     
     init(updater: SPUUpdater) {
         self.updater = updater
-        self.viewModel = CheckForUpdatesViewModel(updater: updater)
+        // Use @StateObject with lazy initialization to avoid accessing updater during init
+        _viewModel = StateObject(wrappedValue: CheckForUpdatesViewModel(updater: updater))
     }
     
     var body: some View {
