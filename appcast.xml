@@ -3,12 +3,12 @@
     <channel>
         <title>SparkleTest</title>
         <item>
-            <title>1.1</title>
-            <pubDate>Fri, 30 Jan 2026 03:15:46 -0600</pubDate>
-            <sparkle:version>1.1</sparkle:version>
-            <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+            <title>1.2</title>
+            <pubDate>Fri, 30 Jan 2026 03:54:19 -0600</pubDate>
+            <sparkle:version>1.2</sparkle:version>
+            <sparkle:shortVersionString>1.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/Gold240sx/sparkle_test/releases/download/prod/SparkleTest1.1.dmg" length="1407719" type="application/octet-stream" sparkle:edSignature="GFhjmgMV6YoH/aArMaW4x/K9Vu/+TuiCGC+r4vbmh/gPuilTZ+CuAJ1Elr6qBqPdYHiFMqtDgKN0JqHWS/jADg=="/>
+            <enclosure url="https://gold240sx.github.io/sparkle_test/SparkleTest.dmg" length="1408335" type="application/octet-stream" sparkle:edSignature="zNNrfB9i5WtaK7G4HnpXXXsWjuq4vrzeFMVcUrdHGBpuVz82CFzRK85H0xMrNEqMgTmCEgLJLuRZ6MWnUyMfBA=="/>
         </item>
     </channel>
 </rss>
