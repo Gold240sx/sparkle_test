@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         VStack{
             Spacer()
-            Text("Hey!")
+            Text("I said Hey!")
             Text("App Version: \(viewModel.appVersion)")
               
             Spacer()
